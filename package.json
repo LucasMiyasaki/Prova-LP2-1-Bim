@@ -1,4 +1,7 @@
 {
+  "homepage": "https://lucasmiyasaki.github.io/Prova-LP2-1-Bim/",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "name": "bcclp2prova1b",
   "version": "0.1.0",
   "private": true,
