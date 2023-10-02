@@ -1,23 +1,16 @@
-import GradeProdutos from "./componentes/GradeProdutos";
-import BarraBusca from "./templates/BarraBusca";
-import Cabecalho from "./templates/Cabecalho";
-import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TelaInicial from "./TelaInicial";
+import TabelaCarrinho from "./TabelaCarrinho";
 
 function App() {
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((resposta) => resposta.json())
-      .then((produtos) => {
-        setProdutos(produtos);
-      });  
-  },[]);
-
-  const [produtos, setProdutos] = useState([]);
   return (
     <div className="App">
-      <Cabecalho/>
-      <BarraBusca/>
-      <GradeProdutos listaProdutos={produtos}/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<TelaInicial/>}/>
+          <Route path='/carrinho' element={<TabelaCarrinho/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

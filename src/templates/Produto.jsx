@@ -1,6 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Produto(props){
     const [quantidade, setQuantidade] = useState(1);
+
+    function adicionarCarrinho(produto) {
+        const prod = {
+            nome: props.produto?.title.substring(0, 20),
+            preco: props.produto?.price,
+            feedback: ((props.produto ? props.produto.rating.rate : 0) * 20),
+            quant: quantidade
+        }
+
+        props.setListaCarrinho([...props.listaCarrinho,prod]);
+        localStorage.setItem("listaCarrinho", JSON.stringify(props.listaCarrinho));
+        console.log(props.listaCarrinho);
+    }
+    
     return(
         <div style={{
             width: '200px',
@@ -73,7 +87,11 @@ export default function Produto(props){
                         height: '40px',
                         width: '120px',
                     }}
-                    type='button'>
+                    type='button'
+                    onClick={()=> {
+                        adicionarCarrinho(quantidade);
+                    }}
+                    >
                         Comprar
                 </button>
             </div>

@@ -58,7 +58,7 @@ export default function BarraBusca(props) {
                     >Buscar</button>
                 </div>
                 <div>
-                    <Carrinho />
+                    <Carrinho qtdCarrinho={props.listaCarrinho.length} listaCarrinho={props.listaCarrinho}/>
                 </div>
             </div>
             <div style={{
