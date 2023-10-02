@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 export default function Produto(props){
     const [quantidade, setQuantidade] = useState(1);
 
-    function adicionarCarrinho(produto) {
+    function adicionarCarrinho(quantidade) {
         const prod = {
             nome: props.produto?.title.substring(0, 20),
             preco: props.produto?.price,

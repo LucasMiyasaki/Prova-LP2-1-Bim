@@ -21,20 +21,6 @@ export default function TelaInicial(props) {
             localStorage.setItem("listaCarrinho", JSON.stringify([]));
     }, []);
 
-    useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
-            .then((resposta) => resposta.json())
-            .then((produtos) => {
-                setProdutos(produtos);
-            });
-
-        if (localStorage.getItem("listaCarrinho") !== null)
-            setListaCarrinho(JSON.parse(localStorage.getItem("listaCarrinho")));
-
-        else
-            localStorage.setItem("listaCarrinho", JSON.stringify([]));
-    }, []);
-
     return (
         <>
             <Cabecalho />
